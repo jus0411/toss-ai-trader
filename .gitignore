@@ -1,0 +1,34 @@
+# IDEs
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Node / React
+node_modules/
+dist/
+.env
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Spring Boot / Java
+target/
+*.class
+.mvn/
+.metadata/
+bin/
+tmp/
+*.log
+toss-trading.db
+toss-trading.db-journal
+toss-trading.db-wal
+toss-trading.db-shm

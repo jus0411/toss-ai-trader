@@ -1,0 +1,46 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:sqlite:toss-trading.db
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${GMAIL_USERNAME:}
+    password: ${GMAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# 토스 OpenAPI 및 매매 봇 설정
+trading:
+  # 'mock' (가상 트레이딩) 또는 'real' (실제 토스 API 주문 전송)
+  mode: ${TRADING_MODE:mock}
+  toss:
+    client-id: ${TOSS_CLIENT_ID:}
+    client-secret: ${TOSS_CLIENT_SECRET:}
+    # 토스증권 API 베이스 URL (일반적으로 실전/모의 구분 없이 동일하며 권한에 따름)
+    base-url: https://openapi.tossinvest.com
+  telegram:
+    bot-token: ${TELEGRAM_BOT_TOKEN:}
+    chat-id: ${TELEGRAM_CHAT_ID:}
+  report:
+    email-recipient: ${REPORT_EMAIL_RECIPIENT:}
+  gemini:
+    api-key: ${GEMINI_API_KEY:}
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+  groq:
+    api-key: ${GROQ_API_KEY:}
